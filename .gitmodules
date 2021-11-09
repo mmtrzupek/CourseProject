@@ -1,0 +1,3 @@
+[submodule "metapy"]
+	path = metapy
+	url = https://github.com/tpjwm/metapy.git
