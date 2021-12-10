@@ -12,10 +12,8 @@ class BM25plus(metapy.index.RankingFunction):
         self.k1 = k1    # k1 must be >= 0
         self.b = b      # b must be within [0,1]
         self.k3 = k3    # k3 must be >= 0 
-
         self.fp = free_parameter # Usually set to 1.0 by default
-
-        # You *must* call the base class constructor here!
+        
         super(BM25plus, self).__init__()
 
     def score_one(self, sd):
@@ -29,12 +27,6 @@ class BM25plus(metapy.index.RankingFunction):
         return score
 
 def load_ranker(cfg_file):
-    # return metapy.index.OkapiBM25()
-    # return metapy.index.PivotedLength(s)
-    # return metapy.index.AbsoluteDiscount(delta)
-    # return metapy.index.JelinekMercer(lambda)
-    # return metapy.index.DirichletProir(mu)
-
     # Modified BM25+
     return BM25plus(1.8, 0.75, 500, 1.0)
 
@@ -66,7 +58,6 @@ if __name__ == '__main__':
     print("> Inverted Index Construction Successful.")
 
     query = metapy.index.Document()
-    #print('Running Queries')
     with open(query_path) as query_file:
         for query_num, line in enumerate(query_file):
             query.content(line.strip())
@@ -75,4 +66,3 @@ if __name__ == '__main__':
             # print("Query {} average precision: {}".format(query_num + 1, avg_p))
             # print(avg_p)
     print("> Mean Average Precision: {}".format(ev.map()))
-    #print("Elapsed: {} seconds".format(round(time.time() - start_time, 4)))
