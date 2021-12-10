@@ -21,7 +21,6 @@ class BM25L(metapy.index.RankingFunction):
         super(BM25L, self).__init__()
 
     def score_one(self, sd):
-        # https://meta-toolkit.org/doxygen/structmeta_1_1index_1_1score__data.html
 
         IDF = math.log((sd.num_docs + 1.0)/(sd.doc_count + 0.5), 2)
         ctd = sd.doc_term_count / ((1.0 - self.b) + self.b * (sd.doc_size / sd.avg_dl))
@@ -34,11 +33,6 @@ class BM25L(metapy.index.RankingFunction):
         return score
 
 def load_ranker(cfg_file):
-    """
-    Use this function to return the Ranker object to evaluate, e.g. return InL2Ranker(some_param=1.0) 
-    The parameter to this function, cfg_file, is the path to a
-    configuration file used to load the index. You can ignore this for MP2.
-    """
     # Modified BM25L
     return BM25L(1.2, 0.75, 500, 0.5)
 
@@ -70,7 +64,6 @@ if __name__ == '__main__':
     print("> Inverted Index Construction Successful.")
 
     query = metapy.index.Document()
-    #print('Running Queries')
     with open(query_path) as query_file:
         for query_num, line in enumerate(query_file):
             query.content(line.strip())
@@ -79,4 +72,3 @@ if __name__ == '__main__':
             #print("Query {} average precision: {}".format(query_num + 1, avg_p))
             print(avg_p)
     print("> Mean Average Precision: {}".format(ev.map()))
-    #print("Elapsed: {} seconds".format(round(time.time() - start_time, 4)))
