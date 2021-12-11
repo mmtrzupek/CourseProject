@@ -9,3 +9,6 @@ Added an update for the final project, denoted as 'Final Project Update', detail
 [Link to presentation][link]
 
 [link]: https://youtu.be/PjRAOvqMptY
+
+## Update: 12/11/2021
+Added PDF of the full project documentation, denoted as 'Final Project Documentation', detailing the tasks accomplished and results of our project.
