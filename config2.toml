@@ -9,9 +9,9 @@ query-judgements = "cranfield-qrels.txt"
 
 [[analyzers]]
 method = "ngram-word"
-ngram = 1\
+ngram = 1
 filter = "default-unigram-chain"
 
-[query-runner]\
+[query-runner]
 query-path = "cranfield-queries-2.txt"
-query-id-start = 1}
+query-id-start = 1
