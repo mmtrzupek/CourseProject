@@ -1,24 +1,17 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2580
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+prefix = "."
+stop-words = "stopwords.txt"
 
-\f0\fs24 \cf0 prefix = "."\
-stop-words = "stopwords.txt"\
-\
-dataset = "small_dataset"\
-corpus = "line.toml"\
-index = "idx"\
-\
-query-judgements = "cranfield-qrels.txt"\
-\
-[[analyzers]]\
-method = "ngram-word"\
+dataset = "small_dataset"
+corpus = "line.toml"
+index = "idx"
+
+query-judgements = "cranfield-qrels.txt"
+
+[[analyzers]]
+method = "ngram-word"
 ngram = 1\
-filter = "default-unigram-chain"\
-\
+filter = "default-unigram-chain"
+
 [query-runner]\
-query-path = "cranfield-queries-2.txt"\
+query-path = "cranfield-queries-2.txt"
 query-id-start = 1}
